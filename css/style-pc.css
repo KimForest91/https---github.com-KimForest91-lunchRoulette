@@ -1,0 +1,58 @@
+@charset 'utf-8';
+
+/* reset for pc */
+.mobile {display: none !important;}
+br.only-m {content: '';}
+br.only-m::after {content: ' ';}
+
+
+/* 전역 변수 설정 */
+:root {
+
+}
+
+
+/* common */
+body {font-family: 'NotoSansKR', sans-serif; font-size: 15px; font-weight: 300; color: #333333; line-height: 1.4; letter-spacing: -0.02em; background-color: #ffffff;}
+#wrapper {min-width: 320; overflow: hidden;}
+#skip-nav {position: fixed; left: 0; top: -40px; width: 100%; line-height: 40px; text-align: center; background-color: rgba(0, 0, 0, 0.6); color: #ffffff; font-size: 16px; transition: top 0.3s; z-index: 100000;}
+#skip-nav:focus {top: 0;}
+
+ul.tab {width: 400px; height: 30px; margin-bottom: 20px; background-color: burlywood;}
+ul.tab > li {float: left; font-size: 16px;}
+ul.tab > li + li {margin-left: 20px;}
+ul.tab > li > a {display: block; padding: 3px 12px 5px 12px; border-radius: 20px;}
+ul.tab > li.on > a {background-color: yellowgreen;}
+
+ul.content {position: relative; width: 400px; height: 200px; background-color: antiquewhite;}
+ul.content > li {position: absolute; width: 100%; height: 100%; padding-top: 50px; font-size: 32px; display: none;}
+
+ul.content > li.on {display: block;}
+ul.content > li > a {display: block; text-align: center;}
+
+
+#noInput {padding: 40px 20px;}
+#noInput > h4 {font-size: 22px;}
+#noInput > h5 {position: relative; font-size: 18px; padding: 10px 20px 50px 20px; margin-top: 10px; border: 1px solid black; box-sizing: border-box;}
+#noInput > h5 #list {padding: 10px 20px; font-size: 16px; font-weight:
+400; margin-bottom: 20px;}
+#list > li {display: inline-block; margin-right: 12px;}
+#noInput > h5 > button {position: absolute; left: 50%; bottom: 20px; transform: translate(-50%, 0); border: none; border-radius: 3px; padding: 10px 20px; background-color: #ebebeb; font-size: 14px;}
+
+
+#noInput > p {margin-top: 10px; text-align: center; font-size: 22px;}
+#noInput > p > span {display: block; margin-top: 10px; font-size: 32px; color: red; font-weight: 500;}
+
+
+#noInput label {display: block; margin: 10px 0; font-weight: 500; padding-left: 20px;}
+#noInput label > input {}
+
+
+
+
+
+
+
+
+
+

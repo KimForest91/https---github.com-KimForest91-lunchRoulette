@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+<!--     <base href="/"> -->
+    <meta charset="utf-8" />
+    <title>JS연습하기 | forestKim</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-title" content="forestKim" />                                     
+    <meta name="description" content="forestKim" />
+    <link rel="stylesheet" href="./assets/lib/fa/css/all.min.css" />
+    <link rel="stylesheet" href="./css/web-font.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style-pc.css" />
+<!--     <link rel="stylesheet" href="./css/style-m.css" media="all and (max-width: 1023.9px)" /> -->
+    <script src="./js/jquery-3.6.1.min.js"></script>
+    <script src="./js/common.js"></script>
+  </head>
+  <body class="main">
+    <div id="wrapper">
+      <a href="#main" id="skip-nav">본문 바로가기</a>
+      <header id="header">
+        <h1 id="hello">안녕안녕 js 연습중</h1>
+
+      </header>
+
+      <main id="main">
+        <div id="doInput">
+       <!--<h4>입력 해서 추첨하기</h4>
+          <input type="text" id="roulette" value="">
+          <button onclick="newRandom()">입력하기</button>
+          <button onclick="randomNum()">추첨하기</button> 
+          <h5>👇점심메뉴 목록👇
+            <ul id="list"></ul>
+          </h5>
+          <p>이중에서 오늘의 점심메뉴는...!!!!! <span>🎉 <strong id="todayLunch"></strong> 🎉</span></p>
+        </div>-->
+        
+        <div id="noInput">
+          <h4>입력 안하고 추첨하기</h4>
+          <label for="coforward_launch" > 어제먹은 음식 빼기(제외할 음식) 
+            <input id="coforward_launch" type="text" value="" />
+            <button onclick="removeArr()">제외하기</button>
+          </label>
+          <h5>👇점심메뉴 목록👇
+            <ul id="list"></ul>
+            <button onclick="randomLunch()">추첨하기</button>
+          </h5>
+          <p>이중에서 오늘의 점심메뉴는...!!!!! <span id="todayLunch"></span></p>
+        </div>
+      </main>
+
+      <footer id="footer">
+
+      </footer>
+    </div>
+<script>
+'use strict';
+
+/* 점심메뉴 룰렛 */
+
+
+let arr = ['오징어볶음', '순대국', '돌솥비빔밥', '온면', '냉면', '만두전골(온면옆에)', '돈까스','제육볶음', '칼국수', '중국집', '쌀국수'];
+let html = document.getElementById('list');
+
+
+setList();
+
+function randomLunch() {
+  let length = arr.length;
+  let random = 0;
+  random = Math.floor(Math.random() * length);
+  // console.log('random number is ' + random);
+  // console.log(arr[random]);
+  document.getElementById('todayLunch').innerHTML = `🎉 ${arr[random]} 🎉`
+}
+
+function removeArr() {
+  let food = document.getElementById('coforward_launch').value;
+  // console.log(food);
+  
+  findWord(food);
+  function findWord(word) {
+    [...arr].forEach(function(e, i) {
+      // console.log(arr[i]);
+      if(arr[i] === food) {
+        // console.log('지울 음식은: ' + arr[i]);
+        // console.log(document.getElementById(i));
+        html.removeChild(document.getElementById(i));
+        arr.splice(i, 1);
+        i--;
+        // console.log(arr + ' + ' + html);
+      } /* else {
+        console.log('not yet.');
+      } */
+    })
+
+    html.textContent = '';
+    setList();
+    // console.log(arr);
+  }
+  document.getElementById('coforward_launch').value = '';
+}
+
+function setList() {
+  arr.forEach((value, index) => {
+    html.innerHTML += `<li id="${index}">${value}</li>`;
+    // console.log(value);
+  });
+}
+
+
+
+
+
+
+
+let newArr = [];
+function newRandom() {
+  let food = document.getElementById('roulette').value;
+  let length = newArr.length;
+  newArr.push(food);
+  
+  console.log(newArr);
+  console.log(newArr.length);
+  document.getElementById('roulette').value = null;
+
+  randomNum();
+  function randomNum() {
+    let random = 0;
+    random = Math.floor(Math.random() * length);
+    console.log('random number is ' + random);
+    console.log(newArr[random]);
+  }
+}
+
+
+
+
+
+/* document.getElementById('button').addEventListener('click', function() {
+  changeHtml('바꿨지롱');
+});
+
+function changeHtml(change) {
+  document.getElementById('hello').innerHTML = change;
+} */
+/* 
+function machine() {
+  this.name = 'kim';
+}
+
+let object = new machine();
+console.log(object); */
+
+
+/* 결과 예측하기 */
+
+// show();
+// function show() {
+//   console.log(sayHi);
+//   let sayHi = 'Hello, World!';
+// }
+
+// 오류메시지 Cannot access 'sayHi' before initialization
+
+// show();
+// function show() {
+//   let sayHi = 'Hello, World!';
+//   console.log(sayHi);
+// }
+
+// 오류 없음
+
+
+// let a = 1;
+// let show = function() {
+//   a = 2;
+// };
+
+// console.log(a);
+
+// let a = 1;
+// var b = 2;
+
+// window.a = 3;
+// window.b = 4;
+
+// console.log(a + b);
+
+
+
+/* for (var i = 1; i < 6; i++) { 
+  setTimeout(function() { console.log(i); }, i*1000 ); 
+} */
+
+// 위 코드가 동작하지 않는 이유 및 해결방법
+
+/* 
+window.addEventListener('focus', function() {
+    console.log('사용자가 웹페이지에 돌아왔습니다.');
+    wright();
+
+}, false);
+
+
+function checkTime() {
+  let sum = 0;
+  for (let i = 1; i <= 1000000; i++) {
+    sum = sum + i;
+  }
+}
+
+function wright() {
+  let start = new Date().getMinutes();  // 시작
+  console.log(start);
+  checkTime();
+  let end = new Date().getMinutes();  // 종료
+
+  let time = end - start;
+  console.log(time);
+} */
+
+/* 
+let array = ['hello', 'world'];
+console.log(array);
+console.log(...array);
+
+let char = 'hello';
+console.log(char);
+console.log(...char);
+
+let a = [1, 2, 3];
+let b = [4, 5, 6];
+
+let c = [...a, ...b];
+let d = [...b, ...a];
+
+console.log(c);
+console.log(d); */
+// deep copy를 위해서 사용함
+
+
+/* 책임님이 보내주신 코드 */
+// 화면보호기가 돌면 mymq랑 연결이 끊어짐
+/* 
+let sTime = '';
+let eTime = '';
+
+window.addEventListener('focus', function (event) {
+    console.log('has focus');
+    if(sTime) {
+      eTime = new Date();  // 시작
+      const lTime = (eTime - sTime)/1000;
+      console.log(lTime);
+
+      if(lTime > 30) alert('소켓 끊어짐 재접속 바람');
+    }
+    
+});
+window.addEventListener('blur', function (event) {
+    console.log('lost focus');
+    sTime = new Date();  // 시작
+}); */
+
+
+
+
+</script>
+
+  </body>
+</html>
+
+
+

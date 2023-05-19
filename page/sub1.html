@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+<!--     <base href="/"> -->
+    <meta charset="utf-8" />
+    <title>sub1 | forestKim</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-title" content="forestKim" />                                     
+    <meta name="description" content="forestKim" />
+    <link rel="stylesheet" href="./../assets/lib/fa/css/all.min.css" />
+    <link rel="stylesheet" href="./../css/web-font.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style-pc.css" media="all and (min-width: 1024.0px)" />
+    <link rel="stylesheet" href="../css/style-m.css" media="all and (max-width: 1023.9px)" />
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../js/common.js"></script>
+  </head>
+  <body class="sub1">
+  
+    <div id="wrapper">
+      <a href="#main" id="skip-nav">본문 바로가기</a>
+      <header id="header">
+
+      </header>
+
+      <main id="main">
+
+      </main>
+
+      <footer id="footer">
+
+      </footer>
+    </div>
+<script>
+'use strict';
+  
+
+/* let arr = [10, 3, 40];
+
+function addNumber(a, b, c) {
+  console.log(a + b + c);
+}
+
+addNumber(arr[0], arr[1], arr[2]);
+addNumber.apply(undefined, arr);  // 옛날방식
+addNumber(...arr);  // 요즘방식
+
+ */
+/* 
+function add(a, b = a * 3) {
+  console.log('answer is ' + a + b);
+}
+
+add(1);
+
+function temporary() {
+  return 10;
+}
+
+function newFunction(a, b = temporary()) {
+  console.log('newfunction is ' + a + b);
+};
+
+newFunction(3, 5); */
+
+// arguments 는 옛날 문법임
+
+
+/* 
+var a = [1,2,3];
+var b = '김밥';
+var c = [...b, ...a];
+console.log(c);
+ */
+
+/* var a = [1,2,3];
+var b = ['you', 'are'];
+var c = function(a,b){
+  console.log( [[...a], ...[...b]][1] )
+}
+c(a,b); */
+
+/* 
+function 함수(a = 5, b = a * 2 ){
+  console.log(a + b);
+  return 10;
+}
+함수(3);
+*/
+/* 
+function 함수(a = 5, b = a * 2 ){
+  console.log(a + b);
+}
+함수(undefined, undefined);
+ */
+
+/* var numbers = [2,3,4,5,6,1,3,2,5,5,4,6,7];
+console.log(Math.max(...numbers)); */
+/* 
+function 정렬(글자){
+  console.log( ...[...글자].sort() )
+}
+
+정렬('bear'); 
+ */
+
+function 글자세기(글){
+  var 결과 = {};
+  [...글].forEach(function(a){
+    if( 결과[a] > 0 ){ 결과[a]++ } else { 결과[a] = 1 } 
+  }); 
+  console.log(결과)
+}
+
+
+글자세기('aabbeccee');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+  </body>
+</html>
+
+
+
