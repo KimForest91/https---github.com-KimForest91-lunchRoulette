@@ -60,7 +60,9 @@
 /* 점심메뉴 룰렛 */
 
 
-let arr = ['오징어볶음', '순대국', '돌솥비빔밥', '온면', '냉면', '만두전골(온면옆에)', '돈까스','제육볶음', '칼국수', '중국집', '쌀국수'];
+let arr = ['오징어볶음', '순대국', '돌솥비빔밥', '온면', '냉면', '개성손만두', '제육볶음', '칼국수', '중국집', '쌀국수', '아리랑'];
+/* 해장용배열 */
+// let arr = ['순대국', '온면', '개성손만두', '칼국수', '쌀국수',];
 let html = document.getElementById('list');
 
 
@@ -69,10 +71,20 @@ setList();
 function randomLunch() {
   let length = arr.length;
   let random = 0;
+  let random2 = 0;
   random = Math.floor(Math.random() * length);
-  // console.log('random number is ' + random);
-  // console.log(arr[random]);
-  document.getElementById('todayLunch').innerHTML = `🎉 ${arr[random]} 🎉`
+  random2 = Math.floor(Math.random() * length);
+  
+  if (random === random2) {
+    // alert(random + ', ' + random2);
+    random2 = Math.floor(Math.random() * length);
+  } else {
+    random2 = random2;
+  }
+
+  console.log('random number is ' + random + ', ' + random2);
+  // console.log(arr[random] + ' / ' + arr[random2]);
+  document.getElementById('todayLunch').innerHTML = `🎉 ${arr[random]} , ${arr[random2]} 🎉`;
 }
 
 function removeArr() {
@@ -82,9 +94,11 @@ function removeArr() {
   findWord(food);
   function findWord(word) {
     [...arr].forEach(function(e, i) {
+      // alert(food);
+      let correct = arr[i].includes(food);
       // console.log(arr[i]);
-      if(arr[i] === food) {
-        // console.log('지울 음식은: ' + arr[i]);
+      // console.log(correct);
+      if(correct === true) {
         // console.log(document.getElementById(i));
         html.removeChild(document.getElementById(i));
         arr.splice(i, 1);
@@ -93,7 +107,7 @@ function removeArr() {
       } /* else {
         console.log('not yet.');
       } */
-    })
+    });
 
     html.textContent = '';
     setList();
@@ -113,7 +127,7 @@ function setList() {
 
 
 
-
+/* 
 
 let newArr = [];
 function newRandom() {
@@ -133,7 +147,7 @@ function newRandom() {
     console.log(newArr[random]);
   }
 }
-
+ */
 
 
 

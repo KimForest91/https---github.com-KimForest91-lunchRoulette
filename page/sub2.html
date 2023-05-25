@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+<!--     <base href="/"> -->
+    <meta charset="utf-8" />
+    <title>sub2 | forestKim</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-title" content="forestKim" />                                     
+    <meta name="description" content="forestKim" />
+    <link rel="stylesheet" href="./../assets/lib/fa/css/all.min.css" />
+    <link rel="stylesheet" href="./../css/web-font.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style-pc.css" />
+    <!-- <link rel="stylesheet" href="../css/style-m.css" media="all and (max-width: 1023.9px)" /> -->
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../js/common.js"></script>
+  </head>
+  <body class="sub1">
+  
+    <div id="wrapper">
+      <a href="#main" id="skip-nav">본문 바로가기</a>
+      <header id="header">
+
+      </header>
+
+      <main id="main">
+        <div id="noInput">
+          <h4>입력 안하고 추첨하기</h4>
+          <h5>👇점심메뉴 목록👇
+            <ul id="list"></ul>
+            <button onclick="randomLunch()">추첨하기</button>
+          </h5>
+          <p>이중에서 오늘의 점심메뉴는...!!!!! <span id="todayLunch"></span></p>
+        </div>
+      </main>
+
+      <footer id="footer">
+
+      </footer>
+    </div>
+<script>
+'use strict';
+  
+
+let arr = ['오징어볶음', '순대국', '돌솥비빔밥', '온면', '냉면', '개성손만두', '돈까스','제육볶음', '칼국수', '중국집', '쌀국수', '아리랑'];
+let newArr = ['오징어볶음', '순대국', '돌솥비빔밥', '온면', '냉면', '개성손만두', '돈까스','제육볶음', '칼국수', '중국집', '쌀국수', '아리랑'];
+let html = document.getElementById('list');
+
+
+setList();
+
+
+findWord();
+function findWord() {
+  [...newArr].forEach(function(e, i) {
+    let food = document.getElementById('food_'+ i).value;
+    // console.log(food + ' / ' + newArr[i]);
+    let correct = newArr[i].includes(food);
+    
+    // console.log(food);
+    console.log(newArr[i]);
+    if(food === correct) {
+      newArr.splice(i, 1);
+      i--;
+    }
+  });
+  console.log(newArr);
+  // console.log(arr);
+  html.textContent = '';
+  setList();
+  // console.log(arr);
+}
+
+function setList() {
+  arr.forEach((value, index) => {
+    html.innerHTML += `
+    <li>
+      <input type="checkbox" value="${value}" id="food_${index}"/>
+      <label for="food_${index}">${value}</label>
+    </li>`;
+    // console.log(value);
+    
+  });
+  // console.log('최초 ' + newArr);
+}
+
+
+function randomLunch() {
+  let length = newArr.length;
+  let random = 0;
+  random = Math.floor(Math.random() * length);
+  // console.log('random number is ' + random);
+  // console.log(newArr);
+  document.getElementById('todayLunch').innerHTML = `🎉 ${newArr[random]} 🎉`
+}
+
+
+
+
+
+</script>
+
+  </body>
+</html>
+
+
+

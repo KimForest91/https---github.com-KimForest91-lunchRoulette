@@ -104,7 +104,7 @@ function 정렬(글자){
 
 정렬('bear'); 
  */
-
+/* 
 function 글자세기(글){
   var 결과 = {};
   [...글].forEach(function(a){
@@ -115,6 +115,146 @@ function 글자세기(글){
 
 
 글자세기('aabbeccee');
+*/
+
+
+/*  Reference data type */
+/* 
+let name1 = 'kim';
+let name2 = name1;
+
+name1 = 'park'
+
+console.log(name2);
+console.log(name1);
+ */
+/* 
+let name1 = { name : 'kim' };
+let name2 = name1;
+
+name1.name = 'park';
+
+console.log(name1);
+console.log(name2);
+ */
+/* 
+let student1 = { name: 'Kim', age: '15' };
+
+// constructure 문법에서는 대문자로
+function Student(a) {
+  this.name = a;
+  this.age = 15;
+  this.sayHi = function() {
+    console.log('안녕하세요' + this.name + '입니다.');
+  }
+  this.sayHi = '안녕하세요 ' + this.name + ' 입니다.';
+    
+}
+
+let student2 = new Student('park');
+console.log(student2.sayHi);
+
+
+function Product(goods, price){
+  this.name = goods;
+  this.price = price;
+  this.vat = this.price * 0.1;
+}
+
+var product1 = new Product('shirts', 50000);
+var product2 = new Product('pants', 60000);
+
+console.log(product1.vat);
+ */
+
+
+/* Class 문법 */
+class parent {
+  constructor(a) {
+    this.name = a;
+    this.sayHi = function() {console.log('Hi! :)');}
+  }
+
+  sayHello() {  //얘는 물려받는 함수가 아님 부모의 프로토타입에 추가되는 함수
+    console.log('hello!');
+  }
+}
+
+let child = new parent('내이름');
+
+// console.log(child);
+// console.log(child.__proto__);
+// Object.getPrototypeOf(child);
+
+
+parent.prototype.sayGoodbye = function() {
+  console.log('Good Bye!!!');
+}
+// console.log(child.__proto__);
+
+
+class grandpa {
+  constructor(name) {
+    this.lastName = 'kim';
+    this.firstName = name;
+  }
+  sayHi() {
+    console.log('HiHi~~~');
+  }
+}
+
+let grandpa1 = new grandpa('만덕');
+
+class father extends grandpa {
+  constructor(name) {
+    super(name);
+    this.age = 58;  //extends를 사용한 함수에는 this를 쓸 수 없다. 그래서 앞에 super()를 붙여줌.
+  }
+  sayHi() {
+    console.log('안녕 나는 아빠야.');
+    super.sayHi();
+  }
+}
+
+let father1 = new father('희희');
+
+// console.log(father1.sayHi);
+
+
+let person = {
+  name: 'park',
+  age: 30,
+  get nextAge() {
+    return this.age + 1;  //getter는 파라미터가 없고, return이 있어야 함
+  },
+  set setAge(age2) {
+    this.age = parseInt(age2);
+  }
+}
+
+// person.nextAge();
+// console.log(person.age);
+
+// person.setAge(300);
+// console.log(person.age);
+
+
+
+class human {                  //class 에서도 get set 사용 가능
+  constructor() {
+    this.name = 'Park';
+    this.age = 40;
+  }
+  get nextAge() {
+    return this.age + 1;
+  }
+  set setAge(e) {
+    this.age = e;
+  }
+
+}
+
+let human1 = new human();
 
 
 
@@ -125,6 +265,12 @@ function 글자세기(글){
 
 
 
+
+
+
+
+
+ 
 
 
 
