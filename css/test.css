@@ -1,0 +1,235 @@
+@charset "UTF-8";
+/* reset */
+html {
+  line-height: 1.2;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, table, blockquote, pre, code {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+  background-color: transparent;
+}
+
+img {
+  vertical-align: middle;
+  max-width: 100%;
+  border-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+address, em, i, cite {
+  font-style: normal;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table caption {
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin-top: -1px;
+}
+
+i[class^=fa] {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+i[class^=fa] span {
+  position: absolute;
+  left: -9999px;
+}
+
+.ir-hidden {
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+/* 참고 : https://necolas.github.io/normalize.css/8.0.1/normalize.css */
+.mobile {
+  display: none !important;
+}
+
+br.only-m {
+  content: "";
+}
+
+br.only-m::after {
+  content: " ";
+}
+
+body {
+  font-family: "NotoSansKR", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #333333;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  background-color: #ffffff;
+}
+
+#wrapper {
+  min-width: 320;
+  overflow: hidden;
+}
+
+#skip-nav {
+  position: fixed;
+  left: 0;
+  top: -40px;
+  width: 100%;
+  line-height: 40px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  transition: top 0.3s;
+  z-index: 100000;
+}
+
+#skip-nav:focus {
+  top: 0;
+}
+
+#header {
+  width: 100%;
+  padding: 20px 50px;
+  background-color: pink;
+  font-size: 22px;
+}
+
+#main ul {
+  background-color: skyblue;
+}
+#main ul li {
+  padding: 10px 5px;
+  border-bottom: 1px solid #da6f6f;
+}
+
+/* @extend 문법 */
+.btn_yellow, .btn_green, .btn_blue {
+  margin: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.btn_blue {
+  background-color: blue;
+  color: #ffffff;
+}
+
+.btn_green {
+  background-color: green;
+  color: #ffffff;
+}
+
+.btn_yellow {
+  background-color: yellow;
+}
+
+/* mixin */
+.box2 p {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 20px;
+  padding: 30px 20px;
+  text-align: center;
+}
+.box2 span {
+  font-size: 32px;
+  font-weight: 300;
+  margin-top: 20px;
+  padding: 30px 20px;
+  text-align: center;
+  display: block;
+}
+.box2 div {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 20px;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+/* 나도 부트스트랩 만들 수 이따! */
+#boot {
+  margin: 50px 0;
+  padding: 0 20px;
+}
+#boot h3 {
+  font-size: 24px;
+  text-align: center;
+  background-color: bisque;
+  padding: 30px 0;
+  margin-bottom: 20px;
+}
+
+.row {
+  padding: 10px 10px;
+  border: 1px solid #ededed;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.row div:last-child {
+  margin-right: 0;
+}
+.row .col2 {
+  float: left;
+  width: calc(50% - 4px);
+  padding: 8px 12px;
+  margin-right: 8px;
+  background-color: pink;
+  box-sizing: border-box;
+}
+.row .col3 {
+  float: left;
+  width: calc(33.3333333333% - 4px);
+  padding: 8px 12px;
+  margin-right: 6px;
+  background-color: rgb(201, 201, 201);
+  box-sizing: border-box;
+}
+.row .col4 {
+  float: left;
+  width: calc(25% - 3px);
+  padding: 8px 12px;
+  margin-right: 4px;
+  background-color: rgb(197, 234, 255);
+  box-sizing: border-box;
+}
+
+.row:last-child {
+  padding: 10px 10px;
+  border: 1px solid #ededed;
+  margin-bottom: 0;
+  overflow: hidden;
+}/*# sourceMappingURL=test.css.map */

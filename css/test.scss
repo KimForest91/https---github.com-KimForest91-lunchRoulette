@@ -1,0 +1,88 @@
+@use 'reset';
+
+$mainColor: pink;
+$subColor: skyblue;
+$basicSize: 16px; 
+
+
+.mobile {display: none !important;}
+br.only-m {content: '';}
+br.only-m::after {content: ' ';}
+
+body {font-family: 'NotoSansKR', sans-serif; font-size: $basicSize; font-weight: 300; color: #333333; line-height: 1.4; letter-spacing: -0.02em; background-color: #ffffff;}
+#wrapper {min-width: 320; overflow: hidden;}
+#skip-nav {position: fixed; left: 0; top: -40px; width: 100%; line-height: 40px; text-align: center; background-color: rgba(0, 0, 0, 0.6); color: #ffffff; transition: top 0.3s; z-index: 100000;}
+#skip-nav:focus {top: 0;}
+
+#header {width: 100%; padding: 20px 50px; background-color: $mainColor; font-size: $basicSize + 6px;}
+
+#main {
+  ul { 
+    background-color: $subColor;
+    li {padding: 10px 5px; border-bottom: 1px solid reset.$resetColor;}
+  }
+}
+
+/* @extend 문법 */
+%btn {margin: 10px; padding: 8px 12px; border: none; border-radius: 5px; font-size: $basicSize;}
+
+.btn_blue {@extend %btn; background-color: blue; color: #ffffff;}
+.btn_green {@extend %btn; background-color: green; color: #ffffff;}
+.btn_yellow {@extend %btn; background-color: yellow;}
+
+
+/* mixin */
+@mixin mix($font, $weight) {
+  font-size: $font; font-weight: $weight; margin-top: 20px; padding: 30px 20px; text-align: center; 
+}
+
+.box2 {
+  p {@include mix(24px, 600)}
+  span {@include mix(32px, 300); display: block;}
+  div {@include mix(16px, 600)}
+}
+
+
+/* 나도 부트스트랩 만들 수 이따! */
+#boot {margin: 50px 0; padding: 0 20px;
+  h3 {font-size: 24px; text-align: center; background-color: bisque; padding: 30px 0; margin-bottom: 20px;}
+}
+
+@mixin row($mb) {
+  padding: 10px 10px;
+  border: 1px solid #ededed;
+  margin-bottom: $mb;
+  overflow: hidden;
+}
+
+@mixin colum($width, $mr, $bgColor) {
+  float: left;
+  width: $width;
+  padding: 8px 12px;
+  margin-right: $mr;
+  background-color: $bgColor;
+  box-sizing: border-box;
+}
+
+.row {@include row(10px);
+  div:last-child {margin-right: 0;}
+  .col2 {@include colum(calc(50% - 4px), 8px,pink)}
+  .col3 {@include colum(calc(100% / 3 - 4px), 6px,rgb(201, 201, 201))}
+  .col4 {@include colum(calc(25% - 3px), 4px,rgb(197, 234, 255))}
+}
+.row:last-child {@include row(0);} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
